@@ -169,5 +169,3 @@ https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
 
 ## 最終結果画像
 <img width="1680" alt="screenshot 2021-08-01 11 52 21" src="https://user-images.githubusercontent.com/23373288/127757563-6999ccae-514c-44bd-b1d8-2a04c26cedd2.png">
-
-最終結果URL : https://hogehoge-kuroro-piyo.herokuapp.com/

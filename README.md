@@ -12,7 +12,7 @@ docker + vue + rails6 + herokuを実装する。
 
 # Dockerイメージを用いて、rails6をローカル環境で立ち上げる。
 1. `$ docker-compose run web rails new . --force --database=mysql`を実行する。
-2. src/app/config/database.ymlファイルを編集する。
+2. src/config/database.ymlファイルを編集する。
 
 ```ruby:database.yml
 default: &default

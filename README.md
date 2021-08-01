@@ -142,10 +142,10 @@ production:
 ```
 
 6. `$ heroku config -a {アプリ名}`を実行する。(表示される`CLEARDB_DATABASE_URL: mysql://{APP_DATABASE_USERNAME}:{APP_DATABASE_PASSWORD}@{APP_DATABASE_HOST}/{APP_DATABASE}?reconnect=true`をメモしておく。herokuのアプリ内で設定される環境変数を確認する。)
-7. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_USERNAME="{APP_DATABASE_USERNAME}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
-8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
-9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
-10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 (アプリ内へ環境変数を設定する。)
+7. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_USERNAME="{APP_DATABASE_USERNAME}" -a {アプリ名}`を実行する。(アプリ内へAPP_DATABASE_USERNAME環境変数を設定する。)
+8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。(アプリ内へAPP_DATABASE_PASSWORD環境変数を設定する。)
+9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。(アプリ内へAPP_DATABASE_HOST環境変数を設定する。)
+10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 (アプリ内へAPP_DATABASE環境変数を設定する。)
 11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。precompileのために必要。)
 12. こちらのページへアクセスする。(https://tools.heroku.support/limits/boot_timeout)
 13. {アプリ名}を選択して、Boot Timeout時間を120秒へ変更する。最後に「Change Boot Timeout」ボタンを選択する。(deployにかかる時間を引き伸ばして、確実にDockerイメージを展開するため。)

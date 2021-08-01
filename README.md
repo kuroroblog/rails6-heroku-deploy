@@ -126,7 +126,7 @@ end
 1. `$ docker-compose down`を実行する。
 2. `$ heroku login`を実行する。(herokuへログインする。)
 3. `$ heroku container login`を実行する。(herokuのコンテナへログインする。)
-4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。herokuサービスを用いた、アプリの作成を行う。)
+4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。herokuサービスを用いて、アプリの作成を行う。)
 5. `$ heroku addons:create cleardb:ignite -a {アプリ名}`を実行する。(アプリへmysqlを装備する。)
 6. src/config/database.ymlファイルを編集する。(herokuの本番環境mysqlとの接続環境変数を整える。)
 

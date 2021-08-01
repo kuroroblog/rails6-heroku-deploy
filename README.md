@@ -108,7 +108,9 @@ end
 ```
 
 5. `$ docker-compose exec db bin/bash`を実行する。
-6.1 `$ mysql -uroot -p`を実行する。
-6.2 `$ password`を実行する。
-6.3 `$ use app_development;`を実行する。
-6.4 `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。
+6. `$ mysql -uroot -p`を実行する。
+7. `$ password`を実行する。
+8. `$ use app_development;`を実行する。
+9. `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。
+10. `$ quit()`を実行する。
+11. `$ exit()`を実行する。

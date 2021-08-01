@@ -1,5 +1,5 @@
 # rails6-heroku-deploy
-docker + vue + rails6 + herokuを実装する。
+docker + vue + rails6 + heroku + mysqlを実装する。
 
 # 各種サービスのversion
 
@@ -9,6 +9,7 @@ docker + vue + rails6 + herokuを実装する。
 | vue  | 2.6.12  |
 | rails  | 6.1.4  |
 | heroku | heroku/7.56.1 darwin-x64 node-v12.21.0 |
+| mysql | ローカル環境8系, heroku環境5系 |
 
 # zipをダウンロードする。
 1. https://github.com/kuroroblog/rails6-heroku-deploy へアクセスする。

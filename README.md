@@ -39,4 +39,7 @@ default: &default
 4. `$ docker-compose run web rails db:create`を実行する。
 5. `$ docker-compose up`を実行する。
 
-参考 : https://www.youtube.com/watch?v=ltDdZAJli8c
+### 完成画像
+<img width="1680" alt="screenshot 2021-08-01 10 36 49" src="https://user-images.githubusercontent.com/23373288/127756430-987e84f1-5784-4bca-8bb7-53dfe5013cc6.png">
+
+### 参考 : https://www.youtube.com/watch?v=ltDdZAJli8c

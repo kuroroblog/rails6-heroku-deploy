@@ -8,4 +8,4 @@ docker + vue + rails6 + herokuを実装する。
 4. ダウンロードされたzipファイルをデスクトップへ移動
 5. zipファイルをダブルクリック
 6. ターミナルを開く。
-7. ターミナルを活用して、zipを展開して生成されたフォルダへ移動する。(`$ cd Desktop/rails6-heroku-master`)
+7. ターミナルを活用して、zipを展開して生成されたフォルダへ移動する。(`$ cd Desktop/rails6-heroku-deploy-master`)

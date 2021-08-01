@@ -146,4 +146,10 @@ production:
 8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。
 9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。
 10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 
-
+11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。
+12. こちらのページへアクセスする。(https://tools.heroku.support/limits/boot_timeout)
+13. {アプリ名}を選択して、Boot Timeout時間を120秒へ変更する。最後に「Change Boot Timeout」ボタンを選択する。
+14. `$ heroku container:push web -a {アプリ名}`を実行する。
+15. `$ heroku container:release web -a {アプリ名}`を実行する。
+16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
+    adapter: mysql2

@@ -169,3 +169,15 @@ https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
 
 ## 最終結果画像
 <img width="1680" alt="screenshot 2021-08-01 11 52 21" src="https://user-images.githubusercontent.com/23373288/127757563-6999ccae-514c-44bd-b1d8-2a04c26cedd2.png">
+
+## 参考文献
+・https://www.youtube.com/watch?v=ltDdZAJli8c
+・https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
+・https://github.com/kiyodori/rails-docker-kyt
+・https://qiita.com/keisukeYamagishi/items/444ef89590323af8a7ac
+・https://railsdoc.com/rails
+・https://qiita.com/TakahiroSakoda/items/5180ff9762ebddb0bd4d
+・https://docs.docker.jp/compose/reference/build.html
+・https://nishinatoshiharu.com/docker-volume-tutorial/#i
+・https://stackoverflow.com/questions/65375391/dont-know-how-to-build-task-routes
+・https://qiita.com/Hal_mai/items/aed97a6aba2293450a74

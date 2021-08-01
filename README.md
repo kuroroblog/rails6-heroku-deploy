@@ -154,6 +154,9 @@ production:
 16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
 17. `$ heroku open -a {アプリ名}`を実行する。
 
+## 完成画像
+<img width="1680" alt="screenshot 2021-08-01 11 50 42" src="https://user-images.githubusercontent.com/23373288/127757525-01107f79-19a3-4dc4-9756-db9c68000998.png">
+
 ## herokuの本番環境mysqlへrecordを追加する
 
 1. `$ heroku run rails c -a {アプリ名}`を実行する。

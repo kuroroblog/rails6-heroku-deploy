@@ -153,3 +153,10 @@ production:
 15. `$ heroku container:release web -a {アプリ名}`を実行する。
 16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
 17. `$ heroku open -a {アプリ名}`を実行する。
+
+## herokuの本番環境mysqlへrecordを追加する
+
+1. `$ heroku run rails c -a {アプリ名}`を実行する。
+2. `$ Post.create(title:'title1')`を実行する。
+3. `$ Post.create(title:'title2')`を実行する。
+4. `$ exit`を実行する。

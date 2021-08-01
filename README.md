@@ -162,8 +162,8 @@ https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
 
 ## herokuの本番環境mysqlへrecordを追加する
 
-1. `$ heroku run rails c -a {アプリ名}`を実行する。(herokuアプリとインタラクティブモードを行う。)
-2. `$ Post.create(title:'title1')`を実行する。(herokuの本番環境mysqlへrecord追加を行う。)
+1. `$ heroku run rails c -a {アプリ名}`を実行する。(herokuのアプリとインタラクティブモードを行う。参考 : https://www.atmarkit.co.jp/fdotnet/special/ironpython01/ironpython01_02.html)
+2. `$ Post.create(title:'title1')`を実行する。(herokuの本番環境mysqlへrecordの追加を行う。)
 3. `$ Post.create(title:'title2')`を実行する。
 4. `$ exit`を実行する。
 

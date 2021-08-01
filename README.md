@@ -132,7 +132,7 @@ end
 
 ```ruby:database.yml
 production:
-  <<: *default
+   <<: *default
 -  database: app_production
 +  database: <%= ENV['APP_DATABASE'] %>
 -  username: app

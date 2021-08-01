@@ -87,7 +87,7 @@ end
 ### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 00 07" src="https://user-images.githubusercontent.com/23373288/127756734-1aad7cc0-fa4e-4212-b734-8f081298bf75.png">
 
-## rails6でmysqlを利用できることを確認する
+## rails6でmysqlが利用できることを確認する
 1. `$ docker-compose exec web bundle exec rails g model post title:string`を実行する。
 2. `$ docker-compose exec web bundle exec rails db:migrate`を実行する。
 3. users_controller.rbを編集する。

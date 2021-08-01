@@ -157,6 +157,9 @@ production:
 ### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 50 42" src="https://user-images.githubusercontent.com/23373288/127757525-01107f79-19a3-4dc4-9756-db9c68000998.png">
 
+### 参考
+https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
+
 ## herokuの本番環境mysqlへrecordを追加する
 
 1. `$ heroku run rails c -a {アプリ名}`を実行する。(herokuアプリとインタラクティブモードを行う。)

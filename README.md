@@ -128,7 +128,7 @@ end
 3. `$ heroku container login`を実行する。(herokuのコンテナへログインする。)
 4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。herokuサービスを用いて、アプリの作成を行う。)
 5. `$ heroku addons:create cleardb:ignite -a {アプリ名}`を実行する。(アプリへmysqlを装備する。)
-6. src/config/database.ymlファイルを編集する。(herokuの本番環境mysqlとの接続環境変数を整える。)
+6. src/config/database.ymlファイルを編集する。(herokuの本番環境mysqlとの接続のため、環境変数を整える。)
 
 ```ruby:database.yml
 production:

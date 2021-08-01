@@ -6,8 +6,8 @@ docker + vue + rails6 + herokuを実装する。
 | サービス | version |
 | ------------- | ------------- |
 | docker  | クライアント(20.10.5), サーバー(20.10.5)  |
-| rails  | 6.1.4  |
 | vue  | 2.6.12  |
+| rails  | 6.1.4  |
 | heroku | heroku/7.56.1 darwin-x64 node-v12.21.0 |
 
 # zipをダウンロードする。

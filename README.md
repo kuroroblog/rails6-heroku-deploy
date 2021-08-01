@@ -26,8 +26,8 @@ docker + vue + rails6 + heroku + mysqlを実装する。
 7. ターミナルを活用して、zipを展開して生成されたフォルダへ移動する。(`$ cd Desktop/rails6-heroku-deploy-master`)
 
 ## Dockerイメージを用いて、rails6をローカル環境で立ち上げる
-1. `$ docker-compose run web rails new . --force --database=mysql`を実行する。
-2. src/config/database.ymlファイルを編集する。
+1. `$ docker-compose run web rails new . --force --database=mysql`を実行する。(railsアプリの雛形を作成する。参考 : https://docs.docker.jp/compose/reference/run.html)
+2. src/config/database.ymlファイルを編集する。(docker-compose.ymlで定義する、password, hostへ変更する。)
 
 ```ruby:database.yml
 default: &default
@@ -41,9 +41,9 @@ default: &default
 +   host: db
 ```
 
-3. `$ docker-compose build`を実行する。
-4. `$ docker-compose run web rails db:create`を実行する。
-5. `$ docker-compose up`を実行する。
+3. `$ docker-compose build`を実行する。(docker-comopse.ymlファイルを変更したので、dockerイメージを作り直す。)
+4. `$ docker-compose run web rails db:create`を実行する。(dbの作成を行う。参考 : https://docs.docker.jp/compose/reference/run.html)
+5. `$ docker-compose up`を実行する。(コンテナを立ち上げる。参考 : https://docs.docker.jp/compose/reference/up.html)
 
 ### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 10 36 49" src="https://user-images.githubusercontent.com/23373288/127756430-987e84f1-5784-4bca-8bb7-53dfe5013cc6.png">
@@ -51,8 +51,8 @@ default: &default
 ### 参考 : https://www.youtube.com/watch?v=ltDdZAJli8c
 
 ## rails6へvueを追加し、ローカル環境で立ち上げる
-1. `$ docker-compose exec web bundle exec rails webpacker:install:vue`を実行する。
-2. `$ docker-compose run web yarn add vue@2.6.12 vue-loader@15.9.3 vue-template-compiler@2.6.12`を実行する。
+1. `$ docker-compose exec web bundle exec rails webpacker:install:vue`を実行する。(vueをインストールする。参考 : https://matsuand.github.io/docs.docker.jp.onthefly/compose/reference/exec/)
+2. `$ docker-compose run web yarn add vue@2.6.12 vue-loader@15.9.3 vue-template-compiler@2.6.12`を実行する。(vue, vue-loader, vue-template-compilerのversionを変更する。)
 3. routes.rbを編集する。
 
 ```ruby:routes.rb
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 end
 ```
 
-4. `$ docker-compose exec web bundle exec rails g controller users`を実行する。
+4. `$ docker-compose exec web bundle exec rails g controller users`を実行する。(controllerの雛形を作成する。 参考 : https://guides.rubyonrails.org/command_line.html#bin-rails-generate)
 5. users_controller.rbを編集する。
 
 ``` ruby:users_controller.rb
@@ -80,7 +80,7 @@ end
 <%= javascript_pack_tag 'hello_vue.js' %>
 ```
 
-8. `$ docker-compose down`を実行する。
+8. `$ docker-compose down`を実行する。(コンテナを停止する。参考 : https://docs.docker.jp/compose/reference/down.html)
 9. `$ docker-compose build`を実行する。
 10. `$ docker-compose up`を実行する。
 
@@ -88,8 +88,8 @@ end
 <img width="1680" alt="screenshot 2021-08-01 11 00 07" src="https://user-images.githubusercontent.com/23373288/127756734-1aad7cc0-fa4e-4212-b734-8f081298bf75.png">
 
 ## rails6でmysqlが利用できることを確認する
-1. `$ docker-compose exec web bundle exec rails g model post title:string`を実行する。
-2. `$ docker-compose exec web bundle exec rails db:migrate`を実行する。
+1. `$ docker-compose exec web bundle exec rails g model post title:string`を実行する。(modelの雛形を作成する。 参考 : https://guides.rubyonrails.org/command_line.html#bin-rails-generate)
+2. `$ docker-compose exec web bundle exec rails db:migrate`を実行する。(migrationを行う。)
 3. users_controller.rbを編集する。
 
 ``` ruby:users_controller.rb
@@ -110,11 +110,11 @@ end
 <%= javascript_pack_tag 'hello_vue.js' %>
 ```
 
-5. `$ docker-compose exec db bin/bash`を実行する。
+5. `$ docker-compose exec db bin/bash`を実行する。(dbサービスコンテナへログインする。)
 6. `$ mysql -uroot -p`を実行する。
 7. `$ password`を実行する。
 8. `$ use app_development;`を実行する。
-9. `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。
+9. `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。(posts tableへrecordの追加を行う。)
 10. `$ quit`を実行する。
 11. `$ exit`を実行する。
 
@@ -124,11 +124,11 @@ end
 ## herokuへデプロイする。
 
 1. `$ docker-compose down`を実行する。
-2. `$ heroku login`を実行する。
-3. `$ heroku container login`を実行する。
-4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。)
-5. `$ heroku addons:create cleardb:ignite -a {アプリ名}`を実行する。
-6. src/config/database.ymlファイルを編集する。
+2. `$ heroku login`を実行する。(herokuへログインする。)
+3. `$ heroku container login`を実行する。(herokuのコンテナへログインする。)
+4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。herokuサービスを用いた、アプリの作成を行う。)
+5. `$ heroku addons:create cleardb:ignite -a {アプリ名}`を実行する。(アプリへmysqlを装備する。)
+6. src/config/database.ymlファイルを編集する。(herokuの本番環境mysqlとの接続環境変数を整える。)
 
 ```ruby:database.yml
 production:
@@ -141,26 +141,26 @@ production:
 +  host: <%= ENV['APP_DATABASE_HOST'] %>
 ```
 
-6. `$ heroku config -a {アプリ名}`を実行する。(表示される`CLEARDB_DATABASE_URL: mysql://{APP_DATABASE_USERNAME}:{APP_DATABASE_PASSWORD}@{APP_DATABASE_HOST}/{APP_DATABASE}?reconnect=true`をメモしておく。)
-7. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_USERNAME="{APP_DATABASE_USERNAME}" -a {アプリ名}`を実行する。
-8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。
-9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。
-10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 
-11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。
+6. `$ heroku config -a {アプリ名}`を実行する。(表示される`CLEARDB_DATABASE_URL: mysql://{APP_DATABASE_USERNAME}:{APP_DATABASE_PASSWORD}@{APP_DATABASE_HOST}/{APP_DATABASE}?reconnect=true`をメモしておく。herokuのアプリ内で設定される環境変数を確認する。)
+7. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_USERNAME="{APP_DATABASE_USERNAME}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
+8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
+9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。)
+10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 (アプリ内へ環境変数を設定する。)
+11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。(アプリ内へ環境変数を設定する。precompileのために必要。)
 12. こちらのページへアクセスする。(https://tools.heroku.support/limits/boot_timeout)
-13. {アプリ名}を選択して、Boot Timeout時間を120秒へ変更する。最後に「Change Boot Timeout」ボタンを選択する。
-14. `$ heroku container:push web -a {アプリ名}`を実行する。
-15. `$ heroku container:release web -a {アプリ名}`を実行する。
-16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
-17. `$ heroku open -a {アプリ名}`を実行する。
+13. {アプリ名}を選択して、Boot Timeout時間を120秒へ変更する。最後に「Change Boot Timeout」ボタンを選択する。(deployにかかる時間を引き伸ばして、確実にDockerイメージを展開するため。)
+14. `$ heroku container:push web -a {アプリ名}`を実行する。(Dockerイメージをherokuのコンテナへ展開する。)
+15. `$ heroku container:release web -a {アプリ名}`を実行する。(herokuのコンテナへ展開した、Dockerイメージ情報を元に、サービスリリースする。)
+16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。(herokuの本番環境mysqlと接続して、migrationを行う。)
+17. `$ heroku open -a {アプリ名}`を実行する。(アプリを開く。)
 
 ### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 50 42" src="https://user-images.githubusercontent.com/23373288/127757525-01107f79-19a3-4dc4-9756-db9c68000998.png">
 
 ## herokuの本番環境mysqlへrecordを追加する
 
-1. `$ heroku run rails c -a {アプリ名}`を実行する。
-2. `$ Post.create(title:'title1')`を実行する。
+1. `$ heroku run rails c -a {アプリ名}`を実行する。(herokuアプリとインタラクティブモードを行う。)
+2. `$ Post.create(title:'title1')`を実行する。(herokuの本番環境mysqlへrecord追加を行う。)
 3. `$ Post.create(title:'title2')`を実行する。
 4. `$ exit`を実行する。
 

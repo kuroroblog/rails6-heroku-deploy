@@ -146,7 +146,7 @@ production:
 8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。(アプリ内へAPP_DATABASE_PASSWORD環境変数を設定する。)
 9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。(アプリ内へAPP_DATABASE_HOST環境変数を設定する。)
 10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 (アプリ内へAPP_DATABASE環境変数を設定する。)
-11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。(アプリ内へRAILS_SERVE_STATIC_FILES環境変数を設定する。precompileのために必要。)
+11. `$ heroku config:add RAILS_SERVE_STATIC_FILES='true' -a {アプリ名}`を実行する。(アプリ内へRAILS_SERVE_STATIC_FILES環境変数を設定する。precompileのために必要。参考 : https://railsguides.jp/asset_pipeline.html#%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E3%83%97%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E3%81%99%E3%82%8B)
 12. こちらのページへアクセスする。(https://tools.heroku.support/limits/boot_timeout)
 13. {アプリ名}を選択して、Boot Timeout時間を120秒へ変更する。最後に「Change Boot Timeout」ボタンを選択する。(deployにかかる時間を引き伸ばして、確実にDockerイメージを展開するため。)
 14. `$ heroku container:push web -a {アプリ名}`を実行する。(Dockerイメージをherokuのコンテナへ展開する。)

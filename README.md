@@ -84,3 +84,31 @@ end
 9. `$ docker-compose build`を実行する。
 10. `$ docker-compose up`を実行する。
 
+## rails6でmysqlを利用できることを確認する
+1. `$ docker-compose exec web bundle exec rails g model post title:string`を実行する。
+2. `$ docker-compose exec web bundle exec rails db:migrate`を実行する。
+3. users_controller.rbを編集する。
+
+``` ruby:users_controller.rb
+class UsersController < ApplicationController
+   def index
+       @posts = Post.order(created_at: :desc)
+   end
+end
+```
+
+4. app/views/users/index.html.erbファイルを編集する。
+
+``` ruby:index.html.erb
+<h1>hello world</h1>
+<% @posts.each do |post| %>
+   <p><%= post.title %></p>
+<% end %>
+<%= javascript_pack_tag 'hello_vue.js' %>
+```
+
+5. `$ docker-compose exec db bin/bash`を実行する。
+6.1 `$ mysql -uroot -p`を実行する。
+6.2 `$ password`を実行する。
+6.3 `$ use app_development;`を実行する。
+6.4 `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。

@@ -1,6 +1,14 @@
 # rails6-heroku-deploy
 docker + vue + rails6 + herokuを実装する。
 
+# 各種サービスのversion
+
+| サービス | version |
+| ------------- | ------------- |
+| docker  | クライアント(20.10.5), サーバー(20.10.5)  |
+| rails  | 6.1.4  |
+| vue  | 2.6.12  |
+
 # zipをダウンロードする。
 1. https://github.com/kuroroblog/rails6-heroku-deploy へアクセスする。
 2. 緑色の「Code」と書かれたボタンを選択

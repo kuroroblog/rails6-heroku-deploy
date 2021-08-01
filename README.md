@@ -1,6 +1,11 @@
 # rails6-heroku-deploy
 docker + vue + rails6 + heroku + mysqlを実装する。
 
+# 事前準備
+以下の動画URLの事前準備箇所を済ませておく。
+
+動画URL : https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
+
 # 各種サービスのversion
 
 | サービス | version |

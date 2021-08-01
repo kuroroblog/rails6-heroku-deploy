@@ -121,3 +121,29 @@ end
 ## 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 03 18" src="https://user-images.githubusercontent.com/23373288/127756776-0bea3d1c-4a29-494c-9f2f-98d2815e597f.png">
 
+## herokuへデプロイする。
+
+1. `$ docker-compose down`を実行する。
+2. `$ heroku login`を実行する。
+3. `$ heroku container login`を実行する。
+4. `$ heroku create {アプリ名}`を実行する。({アプリ名}はお好みの名前をつけてください。)
+5. `$ heroku addons:create cleardb:ignite -a {アプリ名}`を実行する。
+6. src/config/database.ymlファイルを編集する。
+
+```ruby:database.yml
+production:
+  <<: *default
+-  database: app_production
++  database: <%= ENV['APP_DATABASE'] %>
+-  username: app
++  username: <%= ENV['APP_DATABASE_USERNAME'] %>
+   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
++  host: <%= ENV['APP_DATABASE_HOST'] %>
+```
+
+6. `$ heroku config -a {アプリ名}`を実行する。(表示される`CLEARDB_DATABASE_URL: mysql://{APP_DATABASE_USERNAME}:{APP_DATABASE_PASSWORD}@{APP_DATABASE_HOST}/{APP_DATABASE}?reconnect=true`をメモしておく。)
+7. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_USERNAME="{APP_DATABASE_USERNAME}" -a {アプリ名}`を実行する。
+8. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_PASSWORD="{APP_DATABASE_PASSWORD}" -a {アプリ名}`を実行する。
+9. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE_HOST="{APP_DATABASE_HOST}" -a {アプリ名}`を実行する。
+10. 6でメモした情報を元に、`$ heroku config:add APP_DATABASE="{APP_DATABASE}" -a {アプリ名}`を実行する。 
+

@@ -117,3 +117,7 @@ end
 9. `$ INSERT INTO posts (title, created_at, updated_at) VALUES ('hoge', '9999-12-31 23:59:59.999999', '9999-12-31 23:59:59.999999');`を実行する。
 10. `$ quit`を実行する。
 11. `$ exit`を実行する。
+
+## 完成画像
+<img width="1680" alt="screenshot 2021-08-01 11 03 18" src="https://user-images.githubusercontent.com/23373288/127756776-0bea3d1c-4a29-494c-9f2f-98d2815e597f.png">
+

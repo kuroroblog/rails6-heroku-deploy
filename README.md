@@ -152,4 +152,4 @@ production:
 14. `$ heroku container:push web -a {アプリ名}`を実行する。
 15. `$ heroku container:release web -a {アプリ名}`を実行する。
 16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
-    adapter: mysql2
+17. `$ heroku open -a {アプリ名}`を実行する。

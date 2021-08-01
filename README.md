@@ -9,3 +9,23 @@ docker + vue + rails6 + herokuを実装する。
 5. zipファイルをダブルクリック
 6. ターミナルを開く。
 7. ターミナルを活用して、zipを展開して生成されたフォルダへ移動する。(`$ cd Desktop/rails6-heroku-deploy-master`)
+
+# Dockerイメージを用いて、rails6をローカル環境で立ち上げる。
+1. `$ docker-compose run web rails new . --force --database=mysql`を実行する。
+2. src/app/config/database.ymlファイルを編集する。
+
+```ruby:database.yml
+default: &default
+    adapter: mysql2
+    encoding: utf8mb4
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    username: root
+-   password:
++   password: password
+-   host: localhost
++   host: db
+```
+
+3. `$ docker-compose build`を実行する。
+4. `$ docker-compose run web rails db:create`を実行する。
+5. `$ docker-compose up`を実行する。

@@ -1,12 +1,12 @@
 # rails6-heroku-deploy
 docker + vue + rails6 + heroku + mysqlを実装する。
 
-# 事前準備
+## 事前準備
 以下の動画URLの事前準備箇所を済ませておく。
 
 動画URL : https://www.youtube.com/watch?v=uQf9968RWWo&t=2412s
 
-# 各種サービスのversion
+## 各種サービスのversion
 
 | サービス | version |
 | ------------- | ------------- |
@@ -16,7 +16,7 @@ docker + vue + rails6 + heroku + mysqlを実装する。
 | heroku | heroku/7.56.1 darwin-x64 node-v12.21.0 |
 | mysql | ローカル環境8系, heroku環境5系 |
 
-# zipをダウンロードする
+## zipをダウンロードする
 1. https://github.com/kuroroblog/rails6-heroku-deploy へアクセスする。
 2. 緑色の「Code」と書かれたボタンを選択
 3. 「Download ZIP」を選択
@@ -25,7 +25,7 @@ docker + vue + rails6 + heroku + mysqlを実装する。
 6. ターミナルを開く。
 7. ターミナルを活用して、zipを展開して生成されたフォルダへ移動する。(`$ cd Desktop/rails6-heroku-deploy-master`)
 
-# Dockerイメージを用いて、rails6をローカル環境で立ち上げる
+## Dockerイメージを用いて、rails6をローカル環境で立ち上げる
 1. `$ docker-compose run web rails new . --force --database=mysql`を実行する。
 2. src/config/database.ymlファイルを編集する。
 
@@ -118,7 +118,7 @@ end
 10. `$ quit`を実行する。
 11. `$ exit`を実行する。
 
-## 完成画像
+### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 03 18" src="https://user-images.githubusercontent.com/23373288/127756776-0bea3d1c-4a29-494c-9f2f-98d2815e597f.png">
 
 ## herokuへデプロイする。
@@ -154,7 +154,7 @@ production:
 16. `$ heroku run bundle exec rake db:migrate RAILS_ENV=production -a {アプリ名}`を実行する。
 17. `$ heroku open -a {アプリ名}`を実行する。
 
-## 完成画像
+### 完成画像
 <img width="1680" alt="screenshot 2021-08-01 11 50 42" src="https://user-images.githubusercontent.com/23373288/127757525-01107f79-19a3-4dc4-9756-db9c68000998.png">
 
 ## herokuの本番環境mysqlへrecordを追加する
@@ -163,3 +163,8 @@ production:
 2. `$ Post.create(title:'title1')`を実行する。
 3. `$ Post.create(title:'title2')`を実行する。
 4. `$ exit`を実行する。
+
+### 最終結果画像
+<img width="1680" alt="screenshot 2021-08-01 11 52 21" src="https://user-images.githubusercontent.com/23373288/127757563-6999ccae-514c-44bd-b1d8-2a04c26cedd2.png">
+
+最終結果URL : https://hogehoge-kuroro-piyo.herokuapp.com/
